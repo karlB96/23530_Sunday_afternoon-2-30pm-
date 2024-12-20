@@ -1,0 +1,22 @@
+// Summary: This program attempts to connect to a non-existent database and execute an invalid query, triggering an SQLException.
+// The SQLException is caught and a meaningful error message is displayed.
+import java.sql.*;
+public class SQLExceptionExample {
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/non_existent_db";
+        String user = "root";
+        String password = "password";
+
+        try (Connection connection = DriverManager.getConnection(url, user, password)) {
+            // Attempt to execute an invalid query
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM non_existent_table";
+            statement.executeQuery(sql);
+        } catch (SQLException e) {
+            // Handle SQLException
+            System.err.println("SQLException occurred: " + e.getMessage());
+        } finally {
+            System.out.println("Finished database operation.");
+        }
+    }
+}
