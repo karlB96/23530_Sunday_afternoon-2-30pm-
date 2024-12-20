@@ -1,0 +1,23 @@
+// Summary: This program validates arguments for a method, triggering an IllegalArgumentException for invalid input.
+// The exception is caught and handled with a meaningful error message.
+public class IllegalArgumentExceptionExample {
+    public static void main(String[] args) {
+        try {
+            // Call method with an invalid argument
+            printSquareRoot(-10);
+        } catch (IllegalArgumentException e) {
+            // Handle IllegalArgumentException
+            System.err.println("IllegalArgumentException occurred: " + e.getMessage());
+        } finally {
+            System.out.println("Argument validation operation completed.");
+        }
+    }
+
+    // Method to compute square root; throws IllegalArgumentException for negatives
+    public static void printSquareRoot(int number) {
+        if (number < 0) {
+            throw new IllegalArgumentException("Negative numbers are not allowed.");
+        }
+        System.out.println("Square root: " + Math.sqrt(number));
+    }
+}
