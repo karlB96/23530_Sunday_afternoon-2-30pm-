@@ -1,0 +1,24 @@
+// Summary: This program reads objects from a file until the end, triggering an EOFException when the file ends.
+// The EOFException is caught and handled to indicate the end of the file has been reached.
+import java.io.*;
+public class EOFExceptionExample {
+    public static void main(String[] args) {
+        String filePath = "test_file.dat"; // File containing serialized objects
+
+        try (ObjectInputStream objectInput = new ObjectInputStream(new FileInputStream(filePath))) {
+            while (true) {
+                // Attempt to read objects until EOF is reached
+                Object obj = objectInput.readObject();
+                System.out.println("Read object: " + obj);
+            }
+        } catch (EOFException e) {
+            // Handle EOFException
+            System.err.println("EOFException occurred: Reached the end of the file.");
+        } catch (IOException | ClassNotFoundException e) {
+            // Handle other exceptions
+            System.err.println("Exception occurred: " + e.getMessage());
+        } finally {
+            System.out.println("Finished reading the file.");
+        }
+    }
+}
