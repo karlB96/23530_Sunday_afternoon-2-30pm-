@@ -1,0 +1,17 @@
+// Summary: This program accesses an invalid array index, triggering an ArrayIndexOutOfBoundsException.
+// The exception is caught and a meaningful error message is displayed.
+public class ArrayIndexOutOfBoundsExceptionExample {
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3}; // Array with 3 elements
+
+        try {
+            // Attempt to access an invalid index
+            System.out.println("Number at index 5: " + numbers[5]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            // Handle ArrayIndexOutOfBoundsException
+            System.err.println("ArrayIndexOutOfBoundsException occurred: " + e.getMessage());
+        } finally {
+            System.out.println("Array operation completed.");
+        }
+    }
+}
