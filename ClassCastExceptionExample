@@ -1,0 +1,18 @@
+// Summary: This program attempts to cast a String object to an Integer, triggering a ClassCastException.
+// The exception is caught and handled with a meaningful error message.
+public class ClassCastExceptionExample {
+    public static void main(String[] args) {
+        Object obj = "This is a string"; // Object holding a String
+
+        try {
+            // Attempt to cast the String object to an Integer
+            Integer number = (Integer) obj;
+            System.out.println("Number: " + number);
+        } catch (ClassCastException e) {
+            // Handle ClassCastException
+            System.err.println("ClassCastException occurred: " + e.getMessage());
+        } finally {
+            System.out.println("Type casting operation completed.");
+        }
+    }
+}
