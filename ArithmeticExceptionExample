@@ -1,0 +1,16 @@
+// Summary: This program deliberately performs division by zero, triggering an ArithmeticException.
+// The exception is caught and a meaningful error message is displayed.
+public class ArithmeticExceptionExample {
+    public static void main(String[] args) {
+        try {
+            // Deliberately divide by zero
+            int result = 10 / 0;
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            // Handle ArithmeticException
+            System.err.println("ArithmeticException occurred: Division by zero.");
+        } finally {
+            System.out.println("Arithmetic operation completed.");
+        }
+    }
+}
