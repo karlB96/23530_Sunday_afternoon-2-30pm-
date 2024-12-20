@@ -1,0 +1,15 @@
+// Summary: This program attempts to load a non-existent class, triggering a ClassNotFoundException.
+// The exception is caught and handled to provide a meaningful error message.
+public class ClassNotFoundExceptionExample {
+    public static void main(String[] args) {
+        try {
+            // Attempt to load a non-existent class
+            Class.forName("com.example.NonExistentClass");
+        } catch (ClassNotFoundException e) {
+            // Handle ClassNotFoundException
+            System.err.println("ClassNotFoundException occurred: " + e.getMessage());
+        } finally {
+            System.out.println("Class loading operation completed.");
+        }
+    }
+}
