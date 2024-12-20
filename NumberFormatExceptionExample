@@ -1,0 +1,18 @@
+// Summary: This program attempts to parse an improperly formatted string as an integer, triggering a Number
+public class NumberFormatExceptionExample {
+    public static void main(String[] args) {
+        String invalidNumber = "123ABC"; // String with invalid number format
+
+        try {
+            // Attempt to parse the invalid number
+            int number = Integer.parseInt(invalidNumber);
+            System.out.println("Parsed number: " + number);
+        } catch (NumberFormatException e) {
+            // Handle the NumberFormatException
+            System.err.println("NumberFormatException occurred: Invalid number format.");
+            System.err.println("Error message: " + e.getMessage());
+        } finally {
+            System.out.println("Number conversion operation attempted.");
+        }
+    }
+}
